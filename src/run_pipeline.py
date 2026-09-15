@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 from data_generation import build_supervised_dataset, generate_mobile_traffic_data, split_train_validation_test
+from eda_analysis import compute_time_series_diagnostics, plot_eda_analysis
 from report_generator import generate_report_pdf
 from train_models import prepare_feature_target, run_experiments, save_experiment_summary
 
@@ -48,6 +49,9 @@ def main() -> None:
     records = run_experiments(X_train, y_train, X_val, y_val, X_test, y_test)
     save_experiment_summary(records, RESULTS_DIR / "experiments.csv")
 
+    diagnostics = compute_time_series_diagnostics(df)
+    plot_eda_analysis(df, RESULTS_DIR / "eda_diagnostics.png")
+
     # Choose final winner based on validation RMSE and then fit final evaluation model on train+val
     best = sorted(records, key=lambda x: x["metrics"]["rmse"])[0]
     metrics_summary = {
@@ -64,6 +68,7 @@ def main() -> None:
         "xgb_mae": next(r["metrics"]["mae"] for r in records if r["model"] == "XGBRegressor"),
         "xgb_rmse": next(r["metrics"]["rmse"] for r in records if r["model"] == "XGBRegressor"),
         "xgb_mape": next(r["metrics"]["mape"] for r in records if r["model"] == "XGBRegressor"),
+        "diagnostics": diagnostics,
         "experiments": records,
     }
 
