@@ -10,25 +10,25 @@ Mobile network traffic varies sharply across the day and week. Accurate forecast
 This project studies the question of which model best predicts short-horizon mobile traffic under strong daily seasonality and bursty demand conditions. We compare a simple baseline with more flexible nonlinear models to understand the trade-off between interpretability and forecasting power.
 
 ## Slide 4 — Data and preprocessing
-The project uses a synthetic hourly dataset designed to resemble realistic operator behavior. It includes daily peaks, weekend effects, a slow growth trend, and burst periods that mimic promotions or unusual load conditions. We engineered lag features, rolling statistics, and calendar variables so the models can learn temporal dependence instead of relying only on raw timestamps.
+The project uses the Milan telecommunications activity dataset: 61 daily text files, 314,412,299 records, 10-minute observations, and up to 10,000 geographical squares. Because the raw files are approximately 20 GB, they were processed in bounded chunks with four workers rather than loaded into memory. Internet traffic was aggregated by square and timestamp, then represented with lag features, rolling statistics, and cyclical time variables.
 
 ## Slide 5 — Time-series diagnostics
-The time-series analysis shows clear daily structure and strong autocorrelation. The ACF remains elevated at small lags, and an hourly traffic profile indicates the strongest demand occurs in evening periods. This matters because it confirms the presence of seasonality and supports the choice of lag-based predictors and calendar features.
+The highest-total square was 5161, followed by 5059 and 5259. For square 5161, lag-1 autocorrelation was 0.976, daily-lag autocorrelation at 144 ten-minute steps was 0.910, and weekly-lag autocorrelation at 1008 steps was 0.936. The ADF p-value was approximately 3.2e-15. These findings support lag-based predictors and cyclical temporal features.
 
 ## Slide 6 — Model design
 Three models are evaluated: Linear Regression, RandomForestRegressor, and XGBRegressor. The linear model is a strong baseline and easy to interpret, while the tree-based models are designed to capture nonlinear relationships and threshold effects that appear during traffic surges.
 
 ## Slide 7 — Hyperparameter tuning
-Hyperparameters were selected using a validation split and validation RMSE, rather than by guessing. The tuning process was intentionally small and disciplined, focusing on the most relevant parameters such as tree depth, number of estimators, and learning rate.
+Hyperparameters were selected using a chronological validation split and validation RMSE. Ridge tested regularisation strengths, Random Forest tested estimator count, depth, and leaf size, and XGBoost tested estimator count, depth, and learning rate. After each candidate set, the best configuration was refit on all pre-evaluation data.
 
 ## Slide 8 — Results
-The final evaluation showed that the linear model achieved the best test performance in this synthetic setup. This is an important result: when the series is dominated by deterministic daily and weekly structure, a well-designed linear model can outperform more complex models. It also shows that the forecasting challenge is not simply about model complexity; it is about matching the model to the temporal structure of the data.
+On the December 16–22 evaluation week, Ridge achieved the best RMSE for square 5161 at 130.24 and for square 5059 at 105.75. XGBoost achieved the best RMSE for square 5259 at 96.53, narrowly ahead of Random Forest at 97.65. This shows that model performance varies with area characteristics and that model complexity is not automatically better.
 
 ## Slide 9 — Critical reflection and limitation
-A major limitation is that the dataset is synthetic, so it does not include network outages, missing data, topology changes, or multi-region heterogeneity. During abrupt demand swings, the models can still lag the actual change. This suggests that real-world forecasting would benefit from anomaly-aware features, richer temporal encoding, or sequence-based models.
+The main failure cases are abrupt traffic spikes and low-traffic intervals, where lagged models cannot anticipate an event and percentage error becomes unstable. The downloaded collection is also missing December 11, and the study does not model cross-area dependence or external events. Future work should add exogenous signals, spatial features, and recurrent or transformer sequence models.
 
 ## Slide 10 — Conclusion
-The study demonstrates that careful preprocessing, validation-based tuning, and time-series diagnostics are enough to build a credible forecasting pipeline. Future work should extend this to real operator data, multi-step forecasting, and more advanced methods that explicitly model irregular events and nonlinear dynamics.
+The study demonstrates a reproducible memory-aware workflow for real Milan traffic data. Careful aggregation, temporal diagnostics, chronological tuning, and area-level comparison produced a defensible model evaluation. Future work should scale the approach to all 10,000 squares, add cross-area information, and evaluate deeper sequential models.
 
 ## Closing
 Thank you.

@@ -7,3 +7,5 @@ results/*.csv
 results/*.json
 results/*.png
 docs/*.pdf
+data/
+results/milan/

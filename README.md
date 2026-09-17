@@ -1,10 +1,12 @@
 # Forecasting Mobile Network Traffic
 
-This project investigates short-horizon forecasting of mobile network traffic using a realistic synthetic hourly dataset that captures daily seasonality, weekly cycles, growth trends, and anomalous demand spikes. The study compares three forecasting approaches:
+This project investigates one-step-ahead forecasting of Milan mobile network traffic using the real telecommunications activity dataset from the assignment. The raw data contains approximately two months of 10-minute observations across 10,000 geographical squares. The study compares three forecasting approaches:
 
 - Linear regression as a simple interpretable baseline
 - Random forest regression for nonlinear temporal relationships
 - XGBoost for stronger gradient-boosted performance on tabular time-series features
+
+The raw dataset is intentionally not committed because it is approximately 20 GB. Place the downloaded daily files named `sms-call-internet-mi-YYYY-MM-DD.txt` in a local directory and pass that directory to the Milan analysis script.
 
 ## Project structure
 
@@ -45,6 +47,14 @@ pip install -r requirements.txt
 ```bash
 python src/run_pipeline.py
 ```
+
+## Real Milan dataset workflow
+
+```bash
+python tools/analyze_milan_data.py --data-dir "C:\\path\\to\\downloaded\\files" --output-dir results/milan
+```
+
+The analyzer streams the raw files line by line, records process memory, calculates total Internet traffic per square, identifies the top three squares, and extracts the first two weeks, training history, and 16--22 December evaluation week for the required areas. The raw files remain outside the repository.
 
 This generates:
 
