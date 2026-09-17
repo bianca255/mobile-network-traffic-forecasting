@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import gc
 import json
 import os
 import time
@@ -50,11 +51,8 @@ def _scan_totals_file(path: Path) -> tuple[np.ndarray, int]:
     totals = np.zeros(10001, dtype=np.float64)
     row_count = 0
     for chunk in _read_chunks(path):
-        internet = chunk.iloc[:, 3:].iloc[:, ::-1].bfill(axis=1).iloc[:, 0]
-        valid = chunk[[0]].copy()
-        valid["internet"] = internet
-        valid = valid.dropna()
-        np.add.at(totals, valid[0].to_numpy(dtype=np.int32), valid["internet"].to_numpy(dtype=np.float64))
+        valid = chunk[[0, 7]].dropna(subset=[7])
+        np.add.at(totals, valid[0].to_numpy(dtype=np.int32), valid[7].to_numpy(dtype=np.float64))
         row_count += len(valid)
     return totals, row_count
 
@@ -91,9 +89,8 @@ def _scan_selected_file(arguments: tuple[Path, set[int], dict[str, tuple[int, in
     }
     for chunk in _read_chunks(path):
         chunk = chunk[chunk[0].isin(selected_squares)].copy()
-        chunk["internet"] = chunk.iloc[:, 3:].iloc[:, ::-1].bfill(axis=1).iloc[:, 0]
-        chunk = chunk.dropna(subset=[0, 1, "internet"])
-        for row in chunk[[0, 1, "internet"]].itertuples(index=False, name=None):
+        chunk = chunk.dropna(subset=[0, 1, 7])
+        for row in chunk[[0, 1, 7]].itertuples(index=False, name=None):
             square_id, timestamp_ms, internet = int(row[0]), int(row[1]), float(row[2])
             for name, (start_ms, end_ms) in windows.items():
                 if start_ms <= timestamp_ms < end_ms:
@@ -118,6 +115,7 @@ def main() -> None:
     output_dir = args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
     files = data_files(args.data_dir)
+    memory_evidence = measure_naive_vs_optimized(files[0])
     started = time.perf_counter()
     totals, row_count = stream_totals(files)
     elapsed_first_pass = time.perf_counter() - started
@@ -129,7 +127,7 @@ def main() -> None:
         "file_count": len(files),
         "first_file": files[0].name,
         "last_file": files[-1].name,
-        "row_count": row_count,
+        "internet_row_count": row_count,
         "top_squares": [
             {"square_id": square_id, "total_internet_traffic": float(totals[square_id])}
             for square_id in top_squares
@@ -137,6 +135,7 @@ def main() -> None:
         "required_squares": [4159, 4556],
         "first_pass_seconds": elapsed_first_pass,
         "python_process_rss_bytes": _process_rss_bytes(),
+        "memory_evidence": memory_evidence,
     }
     with (output_dir / "summary.json").open("w", encoding="utf-8") as handle:
         json.dump(summary, handle, indent=2)
@@ -173,6 +172,22 @@ def _process_rss_bytes() -> int | None:
         return int(psutil.Process(os.getpid()).memory_info().rss)
     except ImportError:
         return None
+
+
+def measure_naive_vs_optimized(sample_file: Path) -> dict[str, float]:
+    naive = pd.read_csv(sample_file, sep=r"\s+", header=None, names=list(range(8)), engine="c")
+    naive_mb = float(naive.memory_usage(deep=True).sum() / 1e6)
+    del naive
+    gc.collect()
+
+    peak_chunk_mb = 0.0
+    for chunk in _read_chunks(sample_file):
+        peak_chunk_mb = max(peak_chunk_mb, float(chunk.memory_usage(deep=True).sum() / 1e6))
+    return {
+        "naive_full_load_mb": naive_mb,
+        "chunked_typed_peak_mb": peak_chunk_mb,
+        "estimated_reduction_percent": float((1.0 - peak_chunk_mb / naive_mb) * 100.0),
+    }
 
 
 if __name__ == "__main__":

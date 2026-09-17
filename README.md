@@ -54,7 +54,7 @@ python src/run_pipeline.py
 python tools/analyze_milan_data.py --data-dir "C:\\path\\to\\downloaded\\files" --output-dir results/milan
 ```
 
-The analyzer streams the raw files line by line, records process memory, calculates total Internet traffic per square, identifies the top three squares, and extracts the first two weeks, training history, and 16--22 December evaluation week for the required areas. The raw files remain outside the repository.
+The analyzer uses typed, chunked parsing with four bounded workers, records full-load versus chunked memory evidence, calculates Internet traffic only from the Internet column, identifies the top three squares, and extracts the first two weeks, training history, and 16--22 December evaluation week for the required areas. The raw files remain outside the repository.
 
 The Milan workflow generates:
 
