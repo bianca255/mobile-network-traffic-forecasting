@@ -1,0 +1,22 @@
+area,model,candidate,parameters,validation_mae,validation_rmse,validation_mape,selection_reason
+5161,RidgeAR,1,{'alpha': 1.0},127.99283831871419,176.50205919250712,8.902169310631233,Retain the lowest validation RMSE observed so far.
+5161,RidgeAR,2,{'alpha': 10.0},128.62108145117423,177.43223044798063,8.968868817528548,Keep the current best configuration because validation RMSE is lower.
+5161,RidgeAR,3,{'alpha': 100.0},135.55972842657218,186.58932506665735,9.671613939687902,Keep the current best configuration because validation RMSE is lower.
+5161,RandomForest,1,"{'n_estimators': 120, 'max_depth': 12, 'min_samples_leaf': 2}",128.5917634058151,182.58658165118598,8.249103184911636,Retain the lowest validation RMSE observed so far.
+5161,RandomForest,2,"{'n_estimators': 200, 'max_depth': 18, 'min_samples_leaf': 2}",128.72201994906615,182.07157488517655,8.30730651543353,Retain the lowest validation RMSE observed so far.
+5161,XGBoost,1,"{'n_estimators': 250, 'max_depth': 5, 'learning_rate': 0.05}",137.3829803466797,197.10253716340134,8.623750686645508,Retain the lowest validation RMSE observed so far.
+5161,XGBoost,2,"{'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.03}",138.9760284423828,201.2774922991888,8.542622566223145,Keep the current best configuration because validation RMSE is lower.
+5059,RidgeAR,1,{'alpha': 1.0},103.48213622628494,136.31848303876563,8.553647276060396,Retain the lowest validation RMSE observed so far.
+5059,RidgeAR,2,{'alpha': 10.0},103.68136242738537,136.51662415941678,8.584544851078102,Keep the current best configuration because validation RMSE is lower.
+5059,RidgeAR,3,{'alpha': 100.0},106.92504338178531,139.57950373145854,8.99441805094906,Keep the current best configuration because validation RMSE is lower.
+5059,RandomForest,1,"{'n_estimators': 120, 'max_depth': 12, 'min_samples_leaf': 2}",121.88200170007534,170.64584474238734,8.11181569075726,Retain the lowest validation RMSE observed so far.
+5059,RandomForest,2,"{'n_estimators': 200, 'max_depth': 18, 'min_samples_leaf': 2}",122.69920417852003,171.77468046881907,8.136040094987214,Keep the current best configuration because validation RMSE is lower.
+5059,XGBoost,1,"{'n_estimators': 250, 'max_depth': 5, 'learning_rate': 0.05}",124.59501647949219,174.4239906538805,8.093194961547852,Retain the lowest validation RMSE observed so far.
+5059,XGBoost,2,"{'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.03}",132.0145263671875,185.63421694289013,8.588114738464355,Keep the current best configuration because validation RMSE is lower.
+5259,RidgeAR,1,{'alpha': 1.0},90.34576365700102,124.26988398733967,7.905441643420079,Retain the lowest validation RMSE observed so far.
+5259,RidgeAR,2,{'alpha': 10.0},91.98041968376732,126.09955816419269,8.103016395495736,Keep the current best configuration because validation RMSE is lower.
+5259,RidgeAR,3,{'alpha': 100.0},100.52179677629255,137.0284972011295,9.10571692062929,Keep the current best configuration because validation RMSE is lower.
+5259,RandomForest,1,"{'n_estimators': 120, 'max_depth': 12, 'min_samples_leaf': 2}",83.96249958677173,115.60065057450755,7.305829828807559,Retain the lowest validation RMSE observed so far.
+5259,RandomForest,2,"{'n_estimators': 200, 'max_depth': 18, 'min_samples_leaf': 2}",84.8808710352872,115.97088165173687,7.387923632389021,Keep the current best configuration because validation RMSE is lower.
+5259,XGBoost,1,"{'n_estimators': 250, 'max_depth': 5, 'learning_rate': 0.05}",82.7557373046875,115.33916527734627,7.255799293518066,Retain the lowest validation RMSE observed so far.
+5259,XGBoost,2,"{'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.03}",81.38484954833984,114.73537403385016,7.021352767944336,Retain the lowest validation RMSE observed so far.

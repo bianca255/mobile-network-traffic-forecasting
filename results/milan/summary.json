@@ -1,0 +1,32 @@
+{
+  "data_directory": "C:\\Users\\USER\\Downloads\\New folder",
+  "file_count": 61,
+  "first_file": "sms-call-internet-mi-2013-11-01.txt",
+  "last_file": "sms-call-internet-mi-2014-01-01.txt",
+  "internet_row_count": 65006826,
+  "top_squares": [
+    {
+      "square_id": 5161,
+      "total_internet_traffic": 11970095.703983454
+    },
+    {
+      "square_id": 5059,
+      "total_internet_traffic": 10374676.424066551
+    },
+    {
+      "square_id": 5259,
+      "total_internet_traffic": 9696479.75323786
+    }
+  ],
+  "required_squares": [
+    4159,
+    4556
+  ],
+  "first_pass_seconds": 225.45143050000115,
+  "python_process_rss_bytes": 79929344,
+  "memory_evidence": {
+    "naive_full_load_mb": 309.928132,
+    "chunked_typed_peak_mb": 18.000132,
+    "estimated_reduction_percent": 94.19215936164194
+  }
+}

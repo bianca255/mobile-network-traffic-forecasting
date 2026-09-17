@@ -1,0 +1,11 @@
+{
+  "highest_square": 5161,
+  "adf_statistic": -9.789246229112099,
+  "adf_pvalue": 6.419084962628189e-17,
+  "lag_1_autocorrelation": 0.9681490877609259,
+  "lag_144_autocorrelation": -0.09757189714345674,
+  "lag_1008_autocorrelation": 0.05638908179279733,
+  "mean": 1776.9515273909692,
+  "standard_deviation": 1263.2176444464164,
+  "maximum": 7971.94653702
+}
