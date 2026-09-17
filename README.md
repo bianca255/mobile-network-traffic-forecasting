@@ -56,22 +56,19 @@ python tools/analyze_milan_data.py --data-dir "C:\\path\\to\\downloaded\\files" 
 
 The analyzer streams the raw files line by line, records process memory, calculates total Internet traffic per square, identifies the top three squares, and extracts the first two weeks, training history, and 16--22 December evaluation week for the required areas. The raw files remain outside the repository.
 
-This generates:
+The Milan workflow generates:
 
-- a synthetic mobile network traffic dataset
-- time-series diagnostics and EDA plots
-- feature engineering for lagged temporal signals
-- model training and validation-based hyperparameter tuning
-- a summary in `results/summary.json`
-- an EDA diagnostic figure in `results/eda_diagnostics.png`
-- a forecast plot in `results/forecast_plot.png`
-- a compact PDF report in `docs/report.pdf`
+- `results/milan/area_totals.csv` and `summary.json`
+- the required first-two-week and evaluation-week area extracts
+- distribution, autocorrelation, and comparison figures
+- `model_results.csv` and `tuning_experiments.csv`
+- nine actual-versus-predicted forecast plots
+- the concise PDF report at `docs/milan_report.pdf`
 
 ## Notes
 
-- The project is implemented with reproducibility in mind: all random seeds are fixed.
-- Data are generated to resemble realistic mobile traffic, because the assignment requires a complete experimental workflow without relying on a pre-provided dataset.
-- The methods follow an iterative experimentation strategy: the baseline is established first, then the tree-based models are tuned on a validation split before final evaluation.
-- Time-series diagnostics include autocorrelation assessment, seasonal decomposition, and stationarity checks to justify the forecasting design.
-- Memory management is handled via compact numerical representations, chronological splitting, and disciplined feature generation so that the pipeline remains efficient without duplicating the full data array.
+- The project is implemented with reproducibility in mind: all random seeds are fixed and chronological splits prevent leakage.
+- The methods follow an iterative experimentation strategy: every candidate configuration is recorded with validation metrics and a selection rationale in `results/milan/tuning_experiments.csv`.
+- Time-series diagnostics include autocorrelation and stationarity checks to justify the forecasting design.
+- Memory management uses typed chunked parsing, four bounded workers, compact numeric accumulators, and excludes the approximately 20 GB raw dataset from Git.
 - AI-assisted coding tools were used only to support development and debugging; the final implementation, methodology, and conclusions were reviewed and validated by the author in line with academic integrity requirements.

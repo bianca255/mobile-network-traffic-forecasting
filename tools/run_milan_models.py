@@ -62,7 +62,7 @@ def make_models() -> dict[str, list[tuple[dict, object]]]:
     }
 
 
-def run_area(area: int, input_dir: Path, output_dir: Path) -> list[dict]:
+def run_area(area: int, input_dir: Path, output_dir: Path) -> tuple[list[dict], list[dict]]:
     training = pd.read_csv(input_dir / "training" / f"square_{area}.csv", parse_dates=["timestamp"])
     evaluation = pd.read_csv(input_dir / "evaluation_week" / f"square_{area}.csv", parse_dates=["timestamp"])
     combined = pd.concat([training, evaluation], ignore_index=True).sort_values("timestamp")
@@ -76,12 +76,15 @@ def run_area(area: int, input_dir: Path, output_dir: Path) -> list[dict]:
     area_dir = output_dir / "plots"
     area_dir.mkdir(parents=True, exist_ok=True)
     records = []
+    tuning_records = []
     for model_name, candidates in make_models().items():
         best = None
-        for params, candidate in candidates:
+        for candidate_index, (params, candidate) in enumerate(candidates, start=1):
             candidate.fit(x_all.loc[fit_mask], y_all.loc[fit_mask])
             val_prediction = candidate.predict(x_all.loc[validation_mask])
-            score = metrics(y_all.loc[validation_mask].to_numpy(), val_prediction)["rmse"]
+            validation_metrics = metrics(y_all.loc[validation_mask].to_numpy(), val_prediction)
+            score = validation_metrics["rmse"]
+            tuning_records.append({"area": area, "model": model_name, "candidate": candidate_index, "parameters": params, "validation_mae": validation_metrics["mae"], "validation_rmse": score, "validation_mape": validation_metrics["mape"], "selection_reason": "Retain the lowest validation RMSE observed so far." if best is None or score < best[0] else "Keep the current best configuration because validation RMSE is lower."})
             if best is None or score < best[0]:
                 best = (score, params)
         selected_params = best[1]
@@ -108,7 +111,7 @@ def run_area(area: int, input_dir: Path, output_dir: Path) -> list[dict]:
         fig.tight_layout()
         fig.savefig(area_dir / f"square_{area}_{model_name}.png", dpi=180)
         plt.close(fig)
-    return records
+    return records, tuning_records
 
 
 def main() -> None:
@@ -118,10 +121,16 @@ def main() -> None:
     args = parser.parse_args()
     summary = json.loads((args.input_dir / "summary.json").read_text(encoding="utf-8"))
     areas = [item["square_id"] for item in summary["top_squares"]]
-    records = [record for area in areas for record in run_area(area, args.input_dir, args.output_dir)]
-    results = pd.DataFrame(records)
+    all_records = []
+    tuning_records = []
+    for area in areas:
+        records, area_tuning = run_area(area, args.input_dir, args.output_dir)
+        all_records.extend(records)
+        tuning_records.extend(area_tuning)
+    results = pd.DataFrame(all_records)
     results.to_csv(args.output_dir / "model_results.csv", index=False)
     results.to_json(args.output_dir / "model_results.json", orient="records", indent=2)
+    pd.DataFrame(tuning_records).to_csv(args.output_dir / "tuning_experiments.csv", index=False)
     print(results.to_string(index=False))
 
 
