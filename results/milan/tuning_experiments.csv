@@ -1,22 +1,22 @@
 area,model,candidate,parameters,validation_mae,validation_rmse,validation_mape,selection_reason
-5161,RidgeAR,1,{'alpha': 1.0},0.10049992799758911,0.13972717013078978,26.887849807739258,Select lowest validation RMSE.
-5161,RidgeAR,2,{'alpha': 10.0},0.10121496766805649,0.14061622459793632,27.329317092895508,Select lowest validation RMSE.
-5161,RidgeAR,3,{'alpha': 100.0},0.1073913723230362,0.1491777258796706,30.68672752380371,Select lowest validation RMSE.
-5161,LSTM,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.1416741086662375,,Select lowest validation RMSE.
-5161,LSTM,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.15168390057469802,,Select lowest validation RMSE.
-5161,GRU,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.14363007933729383,,Select lowest validation RMSE.
+5161,RidgeAR,1,{'alpha': 1.0},0.1004999503493309,0.13972722345312624,26.887897491455078,Select lowest validation RMSE.
+5161,RidgeAR,2,{'alpha': 10.0},0.10121483355760574,0.14061605239588895,27.32927131652832,Select lowest validation RMSE.
+5161,RidgeAR,3,{'alpha': 100.0},0.10739125311374664,0.149177551074436,30.68665885925293,Select lowest validation RMSE.
+5161,LSTM,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.14167411523993373,,Select lowest validation RMSE.
+5161,LSTM,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.15168392513425896,,Select lowest validation RMSE.
+5161,GRU,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.14363006636894315,,Select lowest validation RMSE.
 5161,GRU,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.14333292641785253,,Select lowest validation RMSE.
-5059,RidgeAR,1,{'alpha': 1.0},0.11718205362558365,0.15675709810529065,48.918704986572266,Select lowest validation RMSE.
-5059,RidgeAR,2,{'alpha': 10.0},0.11769355088472366,0.1571994959593687,49.0487174987793,Select lowest validation RMSE.
-5059,RidgeAR,3,{'alpha': 100.0},0.1224757730960846,0.16198189445378003,50.25700759887695,Select lowest validation RMSE.
-5059,LSTM,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.16719111367357778,,Select lowest validation RMSE.
-5059,LSTM,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.18281616753379837,,Select lowest validation RMSE.
-5059,GRU,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.16891829324216567,,Select lowest validation RMSE.
-5059,GRU,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.16838427091830727,,Select lowest validation RMSE.
-5259,RidgeAR,1,{'alpha': 1.0},0.07589156925678253,0.10587160560645474,19.882078170776367,Select lowest validation RMSE.
-5259,RidgeAR,2,{'alpha': 10.0},0.0768643468618393,0.10685144604777473,19.439327239990234,Select lowest validation RMSE.
-5259,RidgeAR,3,{'alpha': 100.0},0.08586745709180832,0.11758106424453557,22.839818954467773,Select lowest validation RMSE.
-5259,LSTM,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.10842636968534974,,Select lowest validation RMSE.
-5259,LSTM,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.11588434199217071,,Select lowest validation RMSE.
-5259,GRU,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.10859800131455402,,Select lowest validation RMSE.
-5259,GRU,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.11026641632818858,,Select lowest validation RMSE.
+5059,RidgeAR,1,{'alpha': 1.0},0.11718208342790604,0.15675713375238337,48.918697357177734,Select lowest validation RMSE.
+5059,RidgeAR,2,{'alpha': 10.0},0.11769364029169083,0.15719959075074577,49.048728942871094,Select lowest validation RMSE.
+5059,RidgeAR,3,{'alpha': 100.0},0.1224757581949234,0.16198186570604065,50.256961822509766,Select lowest validation RMSE.
+5059,LSTM,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.16719111924398483,,Select lowest validation RMSE.
+5059,LSTM,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.1828161573451743,,Select lowest validation RMSE.
+5059,GRU,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.1689182822152652,,Select lowest validation RMSE.
+5059,GRU,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.16838427644924286,,Select lowest validation RMSE.
+5259,RidgeAR,1,{'alpha': 1.0},0.07589177042245865,0.1058716891752352,19.881933212280273,Select lowest validation RMSE.
+5259,RidgeAR,2,{'alpha': 10.0},0.0768643170595169,0.10685146783789817,19.4393253326416,Select lowest validation RMSE.
+5259,RidgeAR,3,{'alpha': 100.0},0.08586732298135757,0.11758089394968424,22.839923858642578,Select lowest validation RMSE.
+5259,LSTM,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.10842636539062607,,Select lowest validation RMSE.
+5259,LSTM,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.11588434601049856,,Select lowest validation RMSE.
+5259,GRU,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.10859799702661786,,Select lowest validation RMSE.
+5259,GRU,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.11026642055124482,,Select lowest validation RMSE.

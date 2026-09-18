@@ -1,21 +1,21 @@
 [
   {
-    "mae":104.1728591919,
-    "rmse":140.6594402271,
-    "mape":10.4874153137,
+    "mae":104.1731338501,
+    "rmse":140.6597179366,
+    "mape":10.4874410629,
     "area":5161,
     "model":"RidgeAR",
     "parameters":{
       "alpha":1.0
     },
-    "validation_rmse":0.1397271701,
-    "training_seconds":0.0049049,
-    "execution_seconds":0.0004476
+    "validation_rmse":0.1397272235,
+    "training_seconds":0.002647519,
+    "execution_seconds":0.000297289
   },
   {
-    "mae":112.6622543335,
-    "rmse":149.8229032683,
-    "mape":11.9670820236,
+    "mae":112.6622314453,
+    "rmse":149.8228967502,
+    "mape":11.9670753479,
     "area":5161,
     "model":"LSTM",
     "parameters":{
@@ -27,13 +27,13 @@
       "hidden_size":16,
       "learning_rate":0.001
     },
-    "validation_rmse":0.1416741087,
-    "training_seconds":6.8708404,
-    "execution_seconds":0.0038846
+    "validation_rmse":0.1416741152,
+    "training_seconds":2.437856134,
+    "execution_seconds":0.002381699
   },
   {
     "mae":102.7156295776,
-    "rmse":143.615324141,
+    "rmse":143.6153309409,
     "mape":8.0134277344,
     "area":5161,
     "model":"GRU",
@@ -47,21 +47,21 @@
       "learning_rate":0.001
     },
     "validation_rmse":0.1433329264,
-    "training_seconds":31.7499234,
-    "execution_seconds":0.0131827
+    "training_seconds":7.99389209,
+    "execution_seconds":0.004108927
   },
   {
-    "mae":85.1415100098,
-    "rmse":112.1060594022,
-    "mape":8.4662008286,
+    "mae":85.1416473389,
+    "rmse":112.1061682904,
+    "mape":8.4662246704,
     "area":5059,
     "model":"RidgeAR",
     "parameters":{
       "alpha":1.0
     },
-    "validation_rmse":0.1567570981,
-    "training_seconds":0.0038153,
-    "execution_seconds":0.0005501
+    "validation_rmse":0.1567571338,
+    "training_seconds":0.002416691,
+    "execution_seconds":0.000257356
   },
   {
     "mae":86.0135116577,
@@ -78,13 +78,13 @@
       "hidden_size":16,
       "learning_rate":0.001
     },
-    "validation_rmse":0.1671911137,
-    "training_seconds":7.2629901,
-    "execution_seconds":0.0036653
+    "validation_rmse":0.1671911192,
+    "training_seconds":2.546946837,
+    "execution_seconds":0.001721983
   },
   {
-    "mae":85.7868499756,
-    "rmse":113.2624898259,
+    "mae":85.7868652344,
+    "rmse":113.262494137,
     "mape":8.6293621063,
     "area":5059,
     "model":"GRU",
@@ -97,27 +97,27 @@
       "hidden_size":32,
       "learning_rate":0.001
     },
-    "validation_rmse":0.1683842709,
-    "training_seconds":31.9127787,
-    "execution_seconds":0.0132701
+    "validation_rmse":0.1683842764,
+    "training_seconds":7.955773008,
+    "execution_seconds":0.004181581
   },
   {
-    "mae":76.0550460815,
-    "rmse":103.2480279397,
-    "mape":7.7279806137,
+    "mae":76.0548706055,
+    "rmse":103.2478056668,
+    "mape":7.7279844284,
     "area":5259,
     "model":"RidgeAR",
     "parameters":{
       "alpha":1.0
     },
-    "validation_rmse":0.1058716056,
-    "training_seconds":0.0053514,
-    "execution_seconds":0.0004617
+    "validation_rmse":0.1058716892,
+    "training_seconds":0.002877789,
+    "execution_seconds":0.00026986
   },
   {
-    "mae":75.9964675903,
-    "rmse":104.2917987997,
-    "mape":7.4343948364,
+    "mae":75.9964752197,
+    "rmse":104.2918081634,
+    "mape":7.4343962669,
     "area":5259,
     "model":"LSTM",
     "parameters":{
@@ -129,14 +129,14 @@
       "hidden_size":16,
       "learning_rate":0.001
     },
-    "validation_rmse":0.1084263697,
-    "training_seconds":8.2772557,
-    "execution_seconds":0.0044545
+    "validation_rmse":0.1084263654,
+    "training_seconds":2.666015782,
+    "execution_seconds":0.002318257
   },
   {
-    "mae":79.4000091553,
+    "mae":79.3999938965,
     "rmse":107.6455591571,
-    "mape":7.6478004456,
+    "mape":7.6478013992,
     "area":5259,
     "model":"GRU",
     "parameters":{
@@ -148,8 +148,8 @@
       "hidden_size":16,
       "learning_rate":0.001
     },
-    "validation_rmse":0.1085980013,
-    "training_seconds":26.8948908,
-    "execution_seconds":0.0069838
+    "validation_rmse":0.108597997,
+    "training_seconds":7.206595593,
+    "execution_seconds":0.004114834
   }
 ]

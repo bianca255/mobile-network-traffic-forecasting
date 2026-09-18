@@ -68,6 +68,7 @@ The Milan workflow generates:
 ## Notes
 
 - The project is implemented with reproducibility in mind: all random seeds are fixed and chronological splits prevent leakage.
+- The sequential experiment was rerun independently with the same seed and reproduced the MAE, RMSE, and MAPE values to at least four decimal places; this confirms that `seed_everything()` controls the stochastic LSTM/GRU training sufficiently for reproducible comparison. Runtime varies with machine load.
 - The methods follow an iterative experimentation strategy: every candidate configuration is recorded with validation metrics and a selection rationale in `results/milan/tuning_experiments.csv`.
 - Time-series diagnostics include autocorrelation and stationarity checks to justify the forecasting design.
 - Memory management uses typed chunked parsing, four bounded workers, compact numeric accumulators, and excludes the approximately 20 GB raw dataset from Git.
