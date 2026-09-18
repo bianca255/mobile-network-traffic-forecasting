@@ -1,22 +1,22 @@
 area,model,candidate,parameters,validation_mae,validation_rmse,validation_mape,selection_reason
-5161,RidgeAR,1,{'alpha': 1.0},127.99283831871419,176.50205919250712,8.902169310631233,Retain the lowest validation RMSE observed so far.
-5161,RidgeAR,2,{'alpha': 10.0},128.62108145117423,177.43223044798063,8.968868817528548,Keep the current best configuration because validation RMSE is lower.
-5161,RidgeAR,3,{'alpha': 100.0},135.55972842657218,186.58932506665735,9.671613939687902,Keep the current best configuration because validation RMSE is lower.
-5161,RandomForest,1,"{'n_estimators': 120, 'max_depth': 12, 'min_samples_leaf': 2}",128.5917634058151,182.58658165118598,8.249103184911636,Retain the lowest validation RMSE observed so far.
-5161,RandomForest,2,"{'n_estimators': 200, 'max_depth': 18, 'min_samples_leaf': 2}",128.72201994906615,182.07157488517655,8.30730651543353,Retain the lowest validation RMSE observed so far.
-5161,XGBoost,1,"{'n_estimators': 250, 'max_depth': 5, 'learning_rate': 0.05}",137.3829803466797,197.10253716340134,8.623750686645508,Retain the lowest validation RMSE observed so far.
-5161,XGBoost,2,"{'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.03}",138.9760284423828,201.2774922991888,8.542622566223145,Keep the current best configuration because validation RMSE is lower.
-5059,RidgeAR,1,{'alpha': 1.0},103.48213622628494,136.31848303876563,8.553647276060396,Retain the lowest validation RMSE observed so far.
-5059,RidgeAR,2,{'alpha': 10.0},103.68136242738537,136.51662415941678,8.584544851078102,Keep the current best configuration because validation RMSE is lower.
-5059,RidgeAR,3,{'alpha': 100.0},106.92504338178531,139.57950373145854,8.99441805094906,Keep the current best configuration because validation RMSE is lower.
-5059,RandomForest,1,"{'n_estimators': 120, 'max_depth': 12, 'min_samples_leaf': 2}",121.88200170007534,170.64584474238734,8.11181569075726,Retain the lowest validation RMSE observed so far.
-5059,RandomForest,2,"{'n_estimators': 200, 'max_depth': 18, 'min_samples_leaf': 2}",122.69920417852003,171.77468046881907,8.136040094987214,Keep the current best configuration because validation RMSE is lower.
-5059,XGBoost,1,"{'n_estimators': 250, 'max_depth': 5, 'learning_rate': 0.05}",124.59501647949219,174.4239906538805,8.093194961547852,Retain the lowest validation RMSE observed so far.
-5059,XGBoost,2,"{'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.03}",132.0145263671875,185.63421694289013,8.588114738464355,Keep the current best configuration because validation RMSE is lower.
-5259,RidgeAR,1,{'alpha': 1.0},90.34576365700102,124.26988398733967,7.905441643420079,Retain the lowest validation RMSE observed so far.
-5259,RidgeAR,2,{'alpha': 10.0},91.98041968376732,126.09955816419269,8.103016395495736,Keep the current best configuration because validation RMSE is lower.
-5259,RidgeAR,3,{'alpha': 100.0},100.52179677629255,137.0284972011295,9.10571692062929,Keep the current best configuration because validation RMSE is lower.
-5259,RandomForest,1,"{'n_estimators': 120, 'max_depth': 12, 'min_samples_leaf': 2}",83.96249958677173,115.60065057450755,7.305829828807559,Retain the lowest validation RMSE observed so far.
-5259,RandomForest,2,"{'n_estimators': 200, 'max_depth': 18, 'min_samples_leaf': 2}",84.8808710352872,115.97088165173687,7.387923632389021,Keep the current best configuration because validation RMSE is lower.
-5259,XGBoost,1,"{'n_estimators': 250, 'max_depth': 5, 'learning_rate': 0.05}",82.7557373046875,115.33916527734627,7.255799293518066,Retain the lowest validation RMSE observed so far.
-5259,XGBoost,2,"{'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.03}",81.38484954833984,114.73537403385016,7.021352767944336,Retain the lowest validation RMSE observed so far.
+5161,RidgeAR,1,{'alpha': 1.0},0.10049992799758911,0.13972717013078978,26.887849807739258,Select lowest validation RMSE.
+5161,RidgeAR,2,{'alpha': 10.0},0.10121496766805649,0.14061622459793632,27.329317092895508,Select lowest validation RMSE.
+5161,RidgeAR,3,{'alpha': 100.0},0.1073913723230362,0.1491777258796706,30.68672752380371,Select lowest validation RMSE.
+5161,LSTM,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.1416741086662375,,Select lowest validation RMSE.
+5161,LSTM,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.15168390057469802,,Select lowest validation RMSE.
+5161,GRU,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.14363007933729383,,Select lowest validation RMSE.
+5161,GRU,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.14333292641785253,,Select lowest validation RMSE.
+5059,RidgeAR,1,{'alpha': 1.0},0.11718205362558365,0.15675709810529065,48.918704986572266,Select lowest validation RMSE.
+5059,RidgeAR,2,{'alpha': 10.0},0.11769355088472366,0.1571994959593687,49.0487174987793,Select lowest validation RMSE.
+5059,RidgeAR,3,{'alpha': 100.0},0.1224757730960846,0.16198189445378003,50.25700759887695,Select lowest validation RMSE.
+5059,LSTM,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.16719111367357778,,Select lowest validation RMSE.
+5059,LSTM,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.18281616753379837,,Select lowest validation RMSE.
+5059,GRU,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.16891829324216567,,Select lowest validation RMSE.
+5059,GRU,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.16838427091830727,,Select lowest validation RMSE.
+5259,RidgeAR,1,{'alpha': 1.0},0.07589156925678253,0.10587160560645474,19.882078170776367,Select lowest validation RMSE.
+5259,RidgeAR,2,{'alpha': 10.0},0.0768643468618393,0.10685144604777473,19.439327239990234,Select lowest validation RMSE.
+5259,RidgeAR,3,{'alpha': 100.0},0.08586745709180832,0.11758106424453557,22.839818954467773,Select lowest validation RMSE.
+5259,LSTM,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.10842636968534974,,Select lowest validation RMSE.
+5259,LSTM,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.11588434199217071,,Select lowest validation RMSE.
+5259,GRU,1,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 16, 'learning_rate': 0.001}",,0.10859800131455402,,Select lowest validation RMSE.
+5259,GRU,2,"{'sequence_length': 24, 'num_layers': 1, 'dropout': 0.0, 'batch_size': 64, 'epochs': 12, 'hidden_size': 32, 'learning_rate': 0.001}",,0.11026641632818858,,Select lowest validation RMSE.

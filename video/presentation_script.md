@@ -10,19 +10,19 @@ Mobile network traffic varies sharply across the day and week. Accurate forecast
 This project studies the question of which model best predicts short-horizon mobile traffic under strong daily seasonality and bursty demand conditions. We compare a simple baseline with more flexible nonlinear models to understand the trade-off between interpretability and forecasting power.
 
 ## Slide 4 — Data and preprocessing
-The project uses the Milan telecommunications activity dataset: 61 daily text files, 314,412,299 records, 10-minute observations, and up to 10,000 geographical squares. Because the raw files are approximately 20 GB, they were processed in bounded chunks with four workers rather than loaded into memory. Internet traffic was aggregated by square and timestamp, then represented with lag features, rolling statistics, and cyclical time variables.
+The project uses the Milan telecommunications activity dataset: 61 daily text files, 65,006,826 Internet records, 10-minute observations, and up to 10,000 geographical squares. Because the raw files are approximately 20 GB, they were processed in bounded chunks with four workers rather than loaded into memory. Internet traffic was aggregated by square and timestamp, then represented as normalized sequences of the previous 24 observations.
 
 ## Slide 5 — Time-series diagnostics
 The highest-total square was 5161, followed by 5059 and 5259. For square 5161, lag-1 autocorrelation was 0.968. The daily and weekly lag correlations were weaker after isolating Internet-only records, while the ADF p-value was approximately 6.4e-17. This supports short-term lag predictors while warning that daily and weekly behavior is not uniform across every activity stream.
 
 ## Slide 6 — Model design
-Three models are evaluated: Ridge autoregression, Random Forest, and XGBoost. Ridge is a regularized linear lag model and interpretable baseline, while the tree-based models are designed to capture nonlinear relationships and threshold effects that appear during traffic surges.
+Three models are evaluated: Ridge autoregression, LSTM, and GRU. Ridge is a classical lag baseline, while LSTM and GRU explicitly process ordered input sequences through different gated recurrent mechanisms.
 
 ## Slide 7 — Hyperparameter tuning
-Hyperparameters were selected using a chronological validation split and validation RMSE. Ridge tested regularisation strengths, Random Forest tested estimator count, depth, and leaf size, and XGBoost tested estimator count, depth, and learning rate. After each candidate set, the best configuration was refit on all pre-evaluation data.
+Hyperparameters were selected using a chronological validation split and validation RMSE. Ridge tested regularisation strengths, while LSTM and GRU tested hidden-state size and learning rate using the same 24-step input window. After each candidate set, the best configuration was refit on all pre-evaluation data.
 
 ## Slide 8 — Results
-On the December 16–22 evaluation week, XGBoost achieved the best RMSE for square 5161 at 136.31. Ridge achieved the best RMSE for square 5059 at 111.82 and square 5259 at 105.96. This shows that model performance varies with area characteristics and that model complexity is not automatically better.
+The corrected sequential-model evaluation compares Ridge, LSTM, and GRU across squares 5161, 5059, and 5259. The final RMSE values are read from the generated results table, with training time reported alongside accuracy. This tests whether recurrent memory improves over the classical lag baseline rather than comparing overlapping tree ensembles.
 
 ## Slide 9 — Critical reflection and limitation
 The main failure cases are abrupt traffic spikes and low-traffic intervals, where lagged models cannot anticipate an event and percentage error becomes unstable. The downloaded collection is also missing December 11, and the study does not model cross-area dependence or external events. Future work should add exogenous signals, spatial features, and recurrent or transformer sequence models.

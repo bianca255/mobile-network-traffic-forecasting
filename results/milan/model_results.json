@@ -1,131 +1,155 @@
 [
   {
-    "mae":101.9592013332,
-    "rmse":138.5893359832,
-    "mape":10.3629590078,
+    "mae":104.1728591919,
+    "rmse":140.6594402271,
+    "mape":10.4874153137,
     "area":5161,
     "model":"RidgeAR",
     "parameters":{
       "alpha":1.0
     },
-    "validation_rmse":176.5020591925,
-    "training_seconds":0.006115,
-    "execution_seconds":0.0019644
+    "validation_rmse":0.1397271701,
+    "training_seconds":0.0049049,
+    "execution_seconds":0.0004476
   },
   {
-    "mae":104.3680413268,
-    "rmse":144.4790688823,
-    "mape":8.7229721005,
+    "mae":112.6622543335,
+    "rmse":149.8229032683,
+    "mape":11.9670820236,
     "area":5161,
-    "model":"RandomForest",
+    "model":"LSTM",
     "parameters":{
-      "n_estimators":200,
-      "max_depth":18,
-      "min_samples_leaf":2
+      "sequence_length":24,
+      "num_layers":1,
+      "dropout":0.0,
+      "batch_size":64,
+      "epochs":24,
+      "hidden_size":16,
+      "learning_rate":0.001
     },
-    "validation_rmse":182.0715748852,
-    "training_seconds":2.0241694,
-    "execution_seconds":0.0983384
+    "validation_rmse":0.1416741087,
+    "training_seconds":6.8708404,
+    "execution_seconds":0.0038846
   },
   {
-    "mae":99.2348022461,
-    "rmse":136.3116402999,
-    "mape":8.9331579208,
+    "mae":102.7156295776,
+    "rmse":143.615324141,
+    "mape":8.0134277344,
     "area":5161,
-    "model":"XGBoost",
+    "model":"GRU",
     "parameters":{
-      "n_estimators":250,
-      "max_depth":5,
-      "learning_rate":0.05
+      "sequence_length":24,
+      "num_layers":1,
+      "dropout":0.0,
+      "batch_size":64,
+      "epochs":24,
+      "hidden_size":32,
+      "learning_rate":0.001
     },
-    "validation_rmse":197.1025371634,
-    "training_seconds":0.4037645,
-    "execution_seconds":0.005524
+    "validation_rmse":0.1433329264,
+    "training_seconds":31.7499234,
+    "execution_seconds":0.0131827
   },
   {
-    "mae":85.5446895638,
-    "rmse":111.8160801515,
-    "mape":8.7207190998,
+    "mae":85.1415100098,
+    "rmse":112.1060594022,
+    "mape":8.4662008286,
     "area":5059,
     "model":"RidgeAR",
     "parameters":{
       "alpha":1.0
     },
-    "validation_rmse":136.3184830388,
-    "training_seconds":0.0053873,
-    "execution_seconds":0.0031196
+    "validation_rmse":0.1567570981,
+    "training_seconds":0.0038153,
+    "execution_seconds":0.0005501
   },
   {
-    "mae":83.6828758235,
-    "rmse":112.6806444036,
-    "mape":7.3971000797,
+    "mae":86.0135116577,
+    "rmse":113.5046288979,
+    "mape":9.2245454788,
     "area":5059,
-    "model":"RandomForest",
+    "model":"LSTM",
     "parameters":{
-      "n_estimators":120,
-      "max_depth":12,
-      "min_samples_leaf":2
+      "sequence_length":24,
+      "num_layers":1,
+      "dropout":0.0,
+      "batch_size":64,
+      "epochs":24,
+      "hidden_size":16,
+      "learning_rate":0.001
     },
-    "validation_rmse":170.6458447424,
-    "training_seconds":1.3519323,
-    "execution_seconds":0.076852
+    "validation_rmse":0.1671911137,
+    "training_seconds":7.2629901,
+    "execution_seconds":0.0036653
   },
   {
-    "mae":83.3595657349,
-    "rmse":112.9918933763,
-    "mape":7.6143221855,
+    "mae":85.7868499756,
+    "rmse":113.2624898259,
+    "mape":8.6293621063,
     "area":5059,
-    "model":"XGBoost",
+    "model":"GRU",
     "parameters":{
-      "n_estimators":250,
-      "max_depth":5,
-      "learning_rate":0.05
+      "sequence_length":24,
+      "num_layers":1,
+      "dropout":0.0,
+      "batch_size":64,
+      "epochs":24,
+      "hidden_size":32,
+      "learning_rate":0.001
     },
-    "validation_rmse":174.4239906539,
-    "training_seconds":0.4678142,
-    "execution_seconds":0.0071243
+    "validation_rmse":0.1683842709,
+    "training_seconds":31.9127787,
+    "execution_seconds":0.0132701
   },
   {
-    "mae":77.7891765829,
-    "rmse":105.9615645241,
-    "mape":7.8728166496,
+    "mae":76.0550460815,
+    "rmse":103.2480279397,
+    "mape":7.7279806137,
     "area":5259,
     "model":"RidgeAR",
     "parameters":{
       "alpha":1.0
     },
-    "validation_rmse":124.2698839873,
-    "training_seconds":0.0074773,
-    "execution_seconds":0.0026344
+    "validation_rmse":0.1058716056,
+    "training_seconds":0.0053514,
+    "execution_seconds":0.0004617
   },
   {
-    "mae":77.6104911708,
-    "rmse":106.4602618152,
-    "mape":7.853295558,
+    "mae":75.9964675903,
+    "rmse":104.2917987997,
+    "mape":7.4343948364,
     "area":5259,
-    "model":"RandomForest",
+    "model":"LSTM",
     "parameters":{
-      "n_estimators":120,
-      "max_depth":12,
-      "min_samples_leaf":2
+      "sequence_length":24,
+      "num_layers":1,
+      "dropout":0.0,
+      "batch_size":64,
+      "epochs":24,
+      "hidden_size":16,
+      "learning_rate":0.001
     },
-    "validation_rmse":115.6006505745,
-    "training_seconds":1.5554383,
-    "execution_seconds":0.0811256
+    "validation_rmse":0.1084263697,
+    "training_seconds":8.2772557,
+    "execution_seconds":0.0044545
   },
   {
-    "mae":80.3457717896,
-    "rmse":109.483076068,
-    "mape":8.2771186829,
+    "mae":79.4000091553,
+    "rmse":107.6455591571,
+    "mape":7.6478004456,
     "area":5259,
-    "model":"XGBoost",
+    "model":"GRU",
     "parameters":{
-      "n_estimators":400,
-      "max_depth":6,
-      "learning_rate":0.03
+      "sequence_length":24,
+      "num_layers":1,
+      "dropout":0.0,
+      "batch_size":64,
+      "epochs":24,
+      "hidden_size":16,
+      "learning_rate":0.001
     },
-    "validation_rmse":114.7353740339,
-    "training_seconds":0.9536397,
-    "execution_seconds":0.0089241
+    "validation_rmse":0.1085980013,
+    "training_seconds":26.8948908,
+    "execution_seconds":0.0069838
   }
 ]

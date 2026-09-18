@@ -2,9 +2,9 @@
 
 This project investigates one-step-ahead forecasting of Milan mobile network traffic using the real telecommunications activity dataset from the assignment. The raw data contains approximately two months of 10-minute observations across 10,000 geographical squares. The study compares three forecasting approaches:
 
-- Linear regression as a simple interpretable baseline
-- Random forest regression for nonlinear temporal relationships
-- XGBoost for stronger gradient-boosted performance on tabular time-series features
+- Ridge autoregression as a regularized classical baseline
+- LSTM for gated recurrent sequence modeling
+- GRU for a compact gated recurrent comparison
 
 The raw dataset is intentionally not committed because it is approximately 20 GB. Place the downloaded daily files named `sms-call-internet-mi-YYYY-MM-DD.txt` in a local directory and pass that directory to the Milan analysis script.
 
