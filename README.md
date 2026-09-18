@@ -42,11 +42,7 @@ source .venv/bin/activate   # Linux/macOS
 pip install -r requirements.txt
 ```
 
-## Run the full experiment
-
-```bash
-python src/run_pipeline.py
-```
+The `src/` directory contains legacy synthetic-data code from an earlier project version. It is not the pipeline used for the submitted Milan results.
 
 ## Real Milan dataset workflow
 
@@ -64,6 +60,14 @@ The Milan workflow generates:
 - `model_results.csv` and `tuning_experiments.csv`
 - nine actual-versus-predicted forecast plots
 - the concise PDF report at `docs/milan_report.pdf`
+
+To reproduce the submitted Milan experiments after the analysis outputs exist:
+
+```bash
+python tools/milan_eda.py --input-dir results/milan
+python tools/run_milan_models.py --input-dir results/milan --output-dir results/milan
+python tools/generate_milan_report.py --input-dir results/milan --output docs/milan_report.pdf
+```
 
 ## Notes
 

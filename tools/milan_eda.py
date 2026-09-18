@@ -27,8 +27,13 @@ def main() -> None:
     _plot_distribution(area_totals, args.input_dir / "area_traffic_distribution.png")
     _plot_area_series(first_series, args.input_dir / "first_two_weeks_comparison.png")
     highest = summary["top_squares"][0]["square_id"]
-    highest_series = _read_series(first_dir / f"square_{highest}.csv").set_index("timestamp")["internet_traffic"]
+    raw_highest_series = _read_series(first_dir / f"square_{highest}.csv").set_index("timestamp")["internet_traffic"]
+    full_index = pd.date_range(raw_highest_series.index.min(), raw_highest_series.index.max(), freq="10min")
+    missing_count = len(full_index) - len(raw_highest_series)
+    highest_series = raw_highest_series.reindex(full_index).interpolate(limit_direction="both")
     diagnostics = {
+        "expected_intervals": len(full_index),
+        "missing_intervals_before_interpolation": int(missing_count),
         "highest_square": highest,
         "adf_statistic": float(adfuller(highest_series, autolag="AIC")[0]),
         "adf_pvalue": float(adfuller(highest_series, autolag="AIC")[1]),

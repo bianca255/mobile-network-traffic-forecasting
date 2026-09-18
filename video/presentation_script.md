@@ -13,7 +13,7 @@ This project studies the question of which model best predicts short-horizon mob
 The project uses the Milan telecommunications activity dataset: 61 daily text files, 65,006,826 Internet records, 10-minute observations, and up to 10,000 geographical squares. Because the raw files are approximately 20 GB, they were processed in bounded chunks with four workers rather than loaded into memory. Internet traffic was aggregated by square and timestamp, then represented as normalized sequences of the previous 24 observations.
 
 ## Slide 5 — Time-series diagnostics
-The highest-total square was 5161, followed by 5059 and 5259. For square 5161, lag-1 autocorrelation was 0.968. The daily and weekly lag correlations were weaker after isolating Internet-only records, while the ADF p-value was approximately 6.4e-17. This supports short-term lag predictors while warning that daily and weekly behavior is not uniform across every activity stream.
+The highest-total square was 5161, followed by 5059 and 5259. The first-two-week series had 409 missing 10-minute intervals, so it was regularized and interpolated before diagnostics. For square 5161, lag-1 autocorrelation was 0.976, daily-lag autocorrelation at 144 ten-minute steps was 0.907, and weekly-lag autocorrelation at 1008 steps was 0.933. The ADF p-value was approximately 4.6e-15. These findings support explicit sequence windows and seasonal lag inputs.
 
 ## Slide 6 — Model design
 Three models are evaluated: Ridge autoregression, LSTM, and GRU. Ridge is a classical lag baseline, while LSTM and GRU explicitly process ordered input sequences through different gated recurrent mechanisms.

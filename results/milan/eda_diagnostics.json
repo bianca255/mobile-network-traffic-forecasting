@@ -1,11 +1,13 @@
 {
+  "expected_intervals": 2016,
+  "missing_intervals_before_interpolation": 409,
   "highest_square": 5161,
-  "adf_statistic": -9.789246229112099,
-  "adf_pvalue": 6.419084962628189e-17,
-  "lag_1_autocorrelation": 0.9681490877609259,
-  "lag_144_autocorrelation": -0.09757189714345674,
-  "lag_1008_autocorrelation": 0.05638908179279733,
-  "mean": 1776.9515273909692,
-  "standard_deviation": 1263.2176444464164,
+  "adf_statistic": -9.060226031260111,
+  "adf_pvalue": 4.584372597577862e-15,
+  "lag_1_autocorrelation": 0.9757635382020609,
+  "lag_144_autocorrelation": 0.9072016876529071,
+  "lag_1008_autocorrelation": 0.9334773920233261,
+  "mean": 1460.4843857823041,
+  "standard_deviation": 1290.8755994908568,
   "maximum": 7971.94653702
 }
