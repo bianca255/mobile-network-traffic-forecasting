@@ -76,4 +76,3 @@ python tools/generate_milan_report.py --input-dir results/milan --output docs/mi
 - The methods follow an iterative experimentation strategy: every candidate configuration is recorded with validation metrics and a selection rationale in `results/milan/tuning_experiments.csv`.
 - Time-series diagnostics include autocorrelation and stationarity checks to justify the forecasting design.
 - Memory management uses typed chunked parsing, four bounded workers, compact numeric accumulators, and excludes the approximately 20 GB raw dataset from Git.
-- AI-assisted coding tools were used only to support development and debugging; the final implementation, methodology, and conclusions were reviewed and validated by me in line with academic integrity requirements.
